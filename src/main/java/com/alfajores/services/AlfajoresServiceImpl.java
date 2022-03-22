@@ -18,4 +18,9 @@ public class AlfajoresServiceImpl implements AlfajoresService {
     public List<Alfajor> getAllAlfajores() {
         return alfajorRepository.findAll();
     }
+
+    @Override
+    public Alfajor getAlfajorByName(String alfajor) {
+        return alfajorRepository.findAlfajorByName(alfajor);
+    }
 }
