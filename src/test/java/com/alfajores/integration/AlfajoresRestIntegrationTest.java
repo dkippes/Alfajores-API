@@ -58,12 +58,30 @@ public class AlfajoresRestIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().string(equalTo(expectedAlfajores())));
+                .andExpect(content().string(equalTo(expectedArrayOfAlfajores())));
 
         verify(alfajoresService).getAllAlfajores();
     }
 
-    static String expectedAlfajores() {
-        return  "[{\"id\":1,\"name\":\"Jorgito\",\"description\":\"Es muy rico\",\"weight\":100,\"price\":150,\"categoria\":{\"id\":1,\"name\":\"Dulce de leche\",\"description\":\"\"}}]";
+    @Test
+    void shouldReturnAnAlfajor() throws Exception {
+        when(alfajoresService.getAlfajorByName("Jorgito"))
+                .thenReturn(CreationMother.createAlfajor());
+
+        mockMvc.perform(get("/api/alfajores/search?alfajor=Jorgito"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().string(equalTo(expectedAlfajor())));
+
+        verify(alfajoresService).getAlfajorByName("Jorgito");
+    }
+
+    static String expectedArrayOfAlfajores() {
+        return  "[" + expectedAlfajor() + "]";
+    }
+
+    static String expectedAlfajor() {
+        return  "{\"id\":1,\"name\":\"Jorgito\",\"description\":\"Es muy rico\",\"weight\":100,\"price\":150,\"categoria\":{\"id\":1,\"name\":\"Dulce de leche\",\"description\":\"\"}}";
     }
 }

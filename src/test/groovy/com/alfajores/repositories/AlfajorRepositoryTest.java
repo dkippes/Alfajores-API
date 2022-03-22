@@ -18,6 +18,6 @@ class AlfajorRepositoryTest {
 
     @Test
     public void should_find_all_alfajores() {
-        assertNotNull(alfajorRepository.findAlfajorByName("Pepitas"));
+        assertNotNull(alfajorRepository.findAlfajorByName("Jorgito"));
     }
 }
