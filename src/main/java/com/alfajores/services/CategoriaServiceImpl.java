@@ -3,7 +3,6 @@ package com.alfajores.services;
 import com.alfajores.models.entities.Categoria;
 import com.alfajores.models.repositories.CategoriaRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -24,7 +24,7 @@ public class AlfajoresRestController {
         return new ResponseEntity<List<Alfajor>>(alfajoresService.getAllAlfajores(), HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/search")
     public ResponseEntity<?> getAlfajorByName(@RequestParam String alfajor) {
         return new ResponseEntity<Alfajor>(alfajoresService.getAlfajorByName(alfajor), HttpStatus.OK);
     }
