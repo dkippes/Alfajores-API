@@ -2,6 +2,7 @@ package com.alfajores.controllers;
 
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.services.AlfajoresService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/alfajores")
+@AllArgsConstructor
 public class AlfajoresRestController {
-
-    @Autowired
     private AlfajoresService alfajoresService;
 
     @GetMapping

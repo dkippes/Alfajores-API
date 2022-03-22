@@ -2,18 +2,16 @@ package com.alfajores.services;
 
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.models.repositories.AlfajorRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class AlfajoresServiceImpl implements AlfajoresService {
-
-    @Autowired
     private AlfajorRepository alfajorRepository;
-
-    @Autowired
     private CategoriaService categoriaService;
 
     @Override
