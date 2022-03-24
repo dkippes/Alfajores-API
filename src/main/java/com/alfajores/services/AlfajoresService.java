@@ -7,5 +7,5 @@ import java.util.List;
 public interface AlfajoresService {
     List<Alfajor> getAllAlfajores();
 
-    Alfajor getAlfajorByName(String alfajor);
+    Alfajor getFirstAlfajorByName(String alfajor);
 }

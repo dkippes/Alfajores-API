@@ -5,6 +5,8 @@ import com.alfajores.models.repositories.ImagenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ImagenServiceImpl implements ImagenService {
@@ -13,5 +15,10 @@ public class ImagenServiceImpl implements ImagenService {
     @Override
     public Imagen getImagen(Long id) {
         return imagenRepository.getById(id);
+    }
+
+    @Override
+    public List<Imagen> getImagenes() {
+        return imagenRepository.findAll();
     }
 }
