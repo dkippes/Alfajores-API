@@ -1,7 +1,6 @@
 package com.alfajores.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,19 +10,18 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "categorias")
+@Table(name = "imagenes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Categoria {
+public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
 
-    @OneToMany(mappedBy = "categoria")
+    @ManyToMany(mappedBy = "imagenes")
     @JsonIgnore
     private List<Alfajor> alfajores;
 }
