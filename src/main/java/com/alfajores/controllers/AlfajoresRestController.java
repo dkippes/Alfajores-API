@@ -1,15 +1,13 @@
 package com.alfajores.controllers;
 
+import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.services.AlfajoresService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class AlfajoresRestController {
     @GetMapping("/search")
     public ResponseEntity<?> getAlfajorByName(@RequestParam String alfajor) {
         return new ResponseEntity<Alfajor>(alfajoresService.getFirstAlfajorByName(alfajor), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> addAlfajor(@RequestBody RequestAlfajorDTO alfajor) {
+        return new ResponseEntity<Alfajor>(alfajoresService.addAlfajor(alfajor), HttpStatus.OK);
     }
 }

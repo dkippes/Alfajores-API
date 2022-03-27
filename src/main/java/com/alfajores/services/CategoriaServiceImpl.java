@@ -14,7 +14,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public Categoria getCategoria(Long id) {
-        return categoriaRepository.getById(id);
+        return categoriaRepository.findById(1L).orElse(null);
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.alfajores.models.repositories.ImagenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,5 +21,16 @@ public class ImagenServiceImpl implements ImagenService {
     @Override
     public List<Imagen> getImagenes() {
         return imagenRepository.findAll();
+    }
+
+    @Override
+    public List<Imagen> addImagen(List<String> images) {
+        List<Imagen> imagens = new ArrayList<>();
+        images.forEach(i -> {
+            Imagen im = new Imagen();
+            im.setName(i);
+            imagens.add(im);
+        });
+        return imagenRepository.saveAll(imagens);
     }
 }

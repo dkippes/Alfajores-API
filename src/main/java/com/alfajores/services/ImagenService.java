@@ -8,4 +8,5 @@ import java.util.List;
 public interface ImagenService {
     Imagen getImagen(Long id);
     List<Imagen> getImagenes();
+    List<Imagen> addImagen(List<String> name);
 }

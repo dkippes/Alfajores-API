@@ -1,13 +1,11 @@
 package com.alfajores.services;
 
+import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
+import com.alfajores.models.entities.Categoria;
+import com.alfajores.models.entities.Imagen;
 import com.alfajores.models.repositories.AlfajorRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +15,7 @@ import java.util.List;
 public class AlfajoresServiceImpl implements AlfajoresService {
     private AlfajorRepository alfajorRepository;
     private CategoriaService categoriaService;
+    private ImagenService imagenService;
 
     @Override
     public List<Alfajor> getAllAlfajores() {
@@ -30,5 +29,20 @@ public class AlfajoresServiceImpl implements AlfajoresService {
             return alfajorInRep.get(0);
         }
         return null;
+    }
+
+    @Override
+    public Alfajor addAlfajor(RequestAlfajorDTO alfajorRequest) {
+        Categoria categoria = categoriaService.getCategoria(alfajorRequest.getCategoria());
+        List<Imagen> imagenes = imagenService.addImagen(alfajorRequest.getImagenes());
+        Alfajor alfajor = Alfajor.builder()
+                .name(alfajorRequest.getName())
+                .description(alfajorRequest.getDescription())
+                .price(alfajorRequest.getPrice())
+                .weight(alfajorRequest.getWeight())
+                .categoria(categoria)
+                .imagenes(imagenes)
+                .build();
+        return alfajorRepository.save(alfajor);
     }
 }
