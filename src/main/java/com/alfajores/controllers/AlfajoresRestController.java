@@ -1,5 +1,6 @@
 package com.alfajores.controllers;
 
+import com.alfajores.exceptions.AlfajorNotFoundException;
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.services.AlfajoresService;
@@ -24,7 +25,7 @@ public class AlfajoresRestController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<?> getAlfajorByName(@RequestParam String alfajor) {
+    public ResponseEntity<?> getAlfajorByName(@RequestParam String alfajor) throws AlfajorNotFoundException {
         return new ResponseEntity<Alfajor>(alfajoresService.getFirstAlfajorByName(alfajor), HttpStatus.OK);
     }
 

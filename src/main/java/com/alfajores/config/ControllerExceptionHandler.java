@@ -1,5 +1,7 @@
 package com.alfajores.config;
 
+import com.alfajores.exceptions.AlfajorNotFoundException;
+import com.alfajores.exceptions.ApiError;
 import com.alfajores.exceptions.ValidationError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,5 +37,13 @@ public class ControllerExceptionHandler {
             return new ValidationError(((FieldError) objectError).getField(), objectError.getDefaultMessage());
         }
         return new ValidationError(objectError.getObjectName(), objectError.getDefaultMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler({AlfajorNotFoundException.class})
+    @ResponseBody
+    public ApiError alfajorNotFound(AlfajorNotFoundException ex) {
+        LOGGER.info("Error: " + ex.getClass().getSimpleName());
+        return new ApiError(ex.getClass().getSimpleName(), ex.getMessage(), HttpStatus.NOT_FOUND.value());
     }
 }

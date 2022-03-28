@@ -1,5 +1,6 @@
 package com.alfajores.services;
 
+import com.alfajores.exceptions.AlfajorNotFoundException;
 import com.alfajores.mappers.AlfajorMapper;
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
@@ -24,12 +25,12 @@ public class AlfajoresServiceImpl implements AlfajoresService {
     }
 
     @Override
-    public Alfajor getFirstAlfajorByName(String alfajor) {
+    public Alfajor getFirstAlfajorByName(String alfajor) throws AlfajorNotFoundException {
         List<Alfajor> alfajorInRep = alfajorRepository.findAlfajoresByName(alfajor);
         if (alfajorInRep.size() > 0 && !"".equals(alfajor.trim())) {
             return alfajorInRep.get(0);
         }
-        return null;
+        throw new AlfajorNotFoundException("No se encontro el alfajor: " + alfajor);
     }
 
     @Override
