@@ -1,7 +1,7 @@
 package com.alfajores.controllers;
 
 import com.alfajores.models.entities.Imagen;
-import com.alfajores.services.ImagenService;
+import com.alfajores.services.interfaces.ImagenService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

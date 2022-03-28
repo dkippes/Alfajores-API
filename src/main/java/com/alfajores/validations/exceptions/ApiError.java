@@ -1,9 +1,7 @@
-package com.alfajores.exceptions;
+package com.alfajores.validations.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor

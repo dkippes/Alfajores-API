@@ -1,7 +1,8 @@
 package com.alfajores.services;
 
 import com.alfajores.models.entities.Imagen;
-import com.alfajores.models.repositories.ImagenRepository;
+import com.alfajores.repositories.ImagenRepository;
+import com.alfajores.services.interfaces.ImagenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

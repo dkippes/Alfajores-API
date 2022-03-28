@@ -1,7 +1,8 @@
 package com.alfajores.services;
 
 import com.alfajores.models.entities.Categoria;
-import com.alfajores.models.repositories.CategoriaRepository;
+import com.alfajores.repositories.CategoriaRepository;
+import com.alfajores.services.interfaces.CategoriaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

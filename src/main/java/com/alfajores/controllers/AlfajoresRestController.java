@@ -1,11 +1,10 @@
 package com.alfajores.controllers;
 
-import com.alfajores.exceptions.AlfajorNotFoundException;
+import com.alfajores.validations.exceptions.AlfajorNotFoundException;
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
-import com.alfajores.services.AlfajoresService;
+import com.alfajores.services.interfaces.AlfajoresService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

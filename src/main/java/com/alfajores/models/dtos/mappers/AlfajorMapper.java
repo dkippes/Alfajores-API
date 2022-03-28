@@ -1,4 +1,4 @@
-package com.alfajores.mappers;
+package com.alfajores.models.dtos.mappers;
 
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;

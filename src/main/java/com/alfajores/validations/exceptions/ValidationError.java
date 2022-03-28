@@ -1,4 +1,4 @@
-package com.alfajores.exceptions;
+package com.alfajores.validations.exceptions;
 
 import lombok.Getter;
 

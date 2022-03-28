@@ -1,4 +1,4 @@
-package com.alfajores.models.repositories;
+package com.alfajores.repositories;
 
 import com.alfajores.models.entities.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
 package com.alfajores.controllers
 
-import com.alfajores.services.AlfajoresService
+import com.alfajores.services.interfaces.AlfajoresService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import spock.lang.Specification

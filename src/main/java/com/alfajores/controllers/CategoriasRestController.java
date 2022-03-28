@@ -1,9 +1,7 @@
 package com.alfajores.controllers;
 
-import com.alfajores.models.entities.Alfajor;
 import com.alfajores.models.entities.Categoria;
-import com.alfajores.services.AlfajoresService;
-import com.alfajores.services.CategoriaService;
+import com.alfajores.services.interfaces.CategoriaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

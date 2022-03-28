@@ -1,6 +1,5 @@
 package com.alfajores.repositories;
 
-import com.alfajores.models.repositories.AlfajorRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

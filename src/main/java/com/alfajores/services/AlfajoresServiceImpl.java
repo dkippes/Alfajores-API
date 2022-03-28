@@ -1,12 +1,15 @@
 package com.alfajores.services;
 
-import com.alfajores.exceptions.AlfajorNotFoundException;
-import com.alfajores.mappers.AlfajorMapper;
+import com.alfajores.validations.exceptions.AlfajorNotFoundException;
+import com.alfajores.models.dtos.mappers.AlfajorMapper;
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.models.entities.Categoria;
 import com.alfajores.models.entities.Imagen;
-import com.alfajores.models.repositories.AlfajorRepository;
+import com.alfajores.repositories.AlfajorRepository;
+import com.alfajores.services.interfaces.AlfajoresService;
+import com.alfajores.services.interfaces.CategoriaService;
+import com.alfajores.services.interfaces.ImagenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

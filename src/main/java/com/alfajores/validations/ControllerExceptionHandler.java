@@ -1,8 +1,8 @@
-package com.alfajores.config;
+package com.alfajores.validations;
 
-import com.alfajores.exceptions.AlfajorNotFoundException;
-import com.alfajores.exceptions.ApiError;
-import com.alfajores.exceptions.ValidationError;
+import com.alfajores.validations.exceptions.AlfajorNotFoundException;
+import com.alfajores.validations.exceptions.ApiError;
+import com.alfajores.validations.exceptions.ValidationError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

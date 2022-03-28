@@ -2,6 +2,7 @@ package com.alfajores.services
 
 
 import com.alfajores.models.repositories.AlfajorRepository
+import com.alfajores.services.interfaces.CategoriaService
 import spock.lang.Specification
 import testingUtils.mothers.CreationMother
 

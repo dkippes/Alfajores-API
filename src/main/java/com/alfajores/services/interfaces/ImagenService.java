@@ -1,4 +1,4 @@
-package com.alfajores.services;
+package com.alfajores.services.interfaces;
 
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.models.entities.Imagen;
