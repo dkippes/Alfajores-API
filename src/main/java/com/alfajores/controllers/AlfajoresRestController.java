@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class AlfajoresRestController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addAlfajor(@RequestBody RequestAlfajorDTO alfajor) {
+    public ResponseEntity<?> addAlfajor(@Valid @RequestBody RequestAlfajorDTO alfajor) {
         return new ResponseEntity<Alfajor>(alfajoresService.addAlfajor(alfajor), HttpStatus.OK);
     }
 }

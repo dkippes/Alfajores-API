@@ -1,5 +1,6 @@
 package com.alfajores.services;
 
+import com.alfajores.mappers.AlfajorMapper;
 import com.alfajores.models.dtos.request.RequestAlfajorDTO;
 import com.alfajores.models.entities.Alfajor;
 import com.alfajores.models.entities.Categoria;
@@ -35,14 +36,7 @@ public class AlfajoresServiceImpl implements AlfajoresService {
     public Alfajor addAlfajor(RequestAlfajorDTO alfajorRequest) {
         Categoria categoria = categoriaService.getCategoria(alfajorRequest.getCategoria());
         List<Imagen> imagenes = imagenService.addImagen(alfajorRequest.getImagenes());
-        Alfajor alfajor = Alfajor.builder()
-                .name(alfajorRequest.getName())
-                .description(alfajorRequest.getDescription())
-                .price(alfajorRequest.getPrice())
-                .weight(alfajorRequest.getWeight())
-                .categoria(categoria)
-                .imagenes(imagenes)
-                .build();
+        Alfajor alfajor = AlfajorMapper.toEntity(alfajorRequest, categoria, imagenes);
         return alfajorRepository.save(alfajor);
     }
 }
